@@ -1,26 +1,16 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { createBottomTabNavigator } from "react-navigation";
+import React, { Component } from "react";
 
-import AuthScreen from "./screens/AuthScreen";
-import WelcomeScreen from "./screens/WelcomeScreen";
-import TabNav from "./screens";
-export default TabNav;
-// export default class App extends React.Component {
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         <TabNav />
-//       </View>
-//     );
-//   }
-// }
+import { Provider } from "react-redux";
+import store from "./store";
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: "#fff",
-//     alignItems: "center",
-//     justifyContent: "center"
-//   }
-// });
+import NewApp from "./screens";
+
+export default class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <NewApp />
+      </Provider>
+    );
+  }
+}

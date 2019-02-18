@@ -1,7 +1,8 @@
 import {
   createBottomTabNavigator,
   createAppContainer,
-  createStackNavigator
+  createStackNavigator,
+  createSwitchNavigator
 } from "react-navigation";
 
 import AuthScreen from "./AuthScreen";
@@ -27,12 +28,18 @@ const TabNav = createBottomTabNavigator(
     Welcome: WelcomeScreen,
     Auth: AuthScreen,
     main: MainTabNav
-  },
-  {
-    defaultNavigationOptions: ({ navigation }) => ({
-      //   tabBarVisible: false
-    })
   }
+  //   {
+  // defaultNavigationOptions: ({ navigation }) => ({
+  //   tabBarVisible: false
+  // })
+  //   }
 );
 
-export default createAppContainer(TabNav);
+const Navigator = createSwitchNavigator({
+  Home: { screen: TabNav }
+});
+
+export default createAppContainer(Navigator);
+
+// export default createAppContainer(TabNav);
