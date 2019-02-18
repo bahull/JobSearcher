@@ -1,16 +1,22 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import { View, Text, Platform } from "react-native";
 import { Button } from "react-native-elements";
 
 class ReviewScreen extends Component {
   static navigationOptions = ({ navigation }) => {
-    console.log(navigation);
     return {
       headerTitle: "hey",
       headerRight: (
         <Button
-          style={{ marginRight: 15 }}
+          style={{
+            marginRight: 15,
+            marginTop: Platform.OS === "android" ? 24 : 0
+          }}
           title="Settings"
+          buttonStyle={{
+            backgroundColor: "rgba(0,0,0,0)"
+          }}
+          titleStyle={{ color: "rgba(0, 122, 255, 1)" }}
           onPress={() => navigation.navigate("settings")}
         />
       )
