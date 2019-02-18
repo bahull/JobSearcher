@@ -1,10 +1,20 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
+import { Button } from "react-native-elements";
 
 class ReviewScreen extends Component {
-  static navigationOptions = {
-    headerTitle: "hey",
-    headerRight: <Text style={{ marginRight: 15 }}>Go Right</Text>
+  static navigationOptions = ({ navigation }) => {
+    console.log(navigation);
+    return {
+      headerTitle: "hey",
+      headerRight: (
+        <Button
+          style={{ marginRight: 15 }}
+          title="Settings"
+          onPress={() => navigation.navigate("settings")}
+        />
+      )
+    };
   };
   render() {
     return (
